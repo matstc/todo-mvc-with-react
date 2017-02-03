@@ -62,3 +62,7 @@ ul li {
 .removeButton:hover {
   background-color:#ddd;
 }
+
+.hidden {
+  display:none;
+}

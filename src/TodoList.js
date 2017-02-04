@@ -23,8 +23,6 @@ class TodoList extends Component {
   }
 
   onComplete = (todo, e) => {
-    console.log(`Completing: ${todo.label}`)
-
     todo.done = !todo.done;
     let newTodos = this.state.todos;
     newTodos.splice(newTodos.indexOf(todo), 1, todo)
@@ -33,8 +31,6 @@ class TodoList extends Component {
 
   onRemove = (todo, e) => {
     e.preventDefault()
-    console.log(`Removing: ${todo.label}`)
-
     let newTodos = this.state.todos;
     newTodos.splice(newTodos.indexOf(todo), 1)
     this.setState({todos: newTodos})
@@ -58,11 +54,13 @@ class TodoList extends Component {
 
         <a href="#" onClick={this.showCompleted}>Show completed todos</a>
 
-        <div className={this.state.completedTodosVisible ? '' : 'hidden'}>
-          {this.state.todos.filter(todo => todo.done).map((todo, index) => {
-            return <p key={index}>{todo.label}</p>
-          })}
-        </div>
+        <section id="completed-todos">
+          <div className={this.state.completedTodosVisible ? '' : 'hidden'}>
+            {this.state.todos.filter(todo => todo.done).map((todo, index) => {
+              return <p key={index}>{todo.label}</p>
+            })}
+          </div>
+        </section>
       </form>
     );
   }

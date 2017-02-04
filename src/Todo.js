@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Todo extends Component {
-  render() {
-    return (
-      <li>
-          <div><input type="checkbox" checked={this.props.todo.done} onClick={this.props.onComplete.bind(null, this.props.todo)}></input>{this.props.todo.label}</div>
-          <button onClick={this.props.onRemove.bind(null, this.props.todo)} className="removeButton">❌</button>
-      </li>
-    );
-  }
+let Todo = props => {
+  return (
+    <li>
+        <div><input type="checkbox" checked={props.todo.done} onClick={props.onComplete.bind(null, props.todo)}></input>{props.todo.label}</div>
+        <button onClick={props.onRemove.bind(null, props.todo)} className="removeButton">❌</button>
+    </li>
+  );
 }
 
 export default Todo;
